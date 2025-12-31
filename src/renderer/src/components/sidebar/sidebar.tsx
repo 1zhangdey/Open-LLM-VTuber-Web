@@ -1,7 +1,7 @@
 /* eslint-disable react/require-default-props */
 import { Box, Button, Menu } from '@chakra-ui/react';
 import {
-  FiSettings, FiClock, FiPlus, FiChevronLeft, FiUsers, FiLayers
+  FiSettings, FiClock, FiPlus, FiChevronLeft, FiUsers, FiLayers, FiDatabase
 } from 'react-icons/fi';
 import { memo } from 'react';
 import { sidebarStyles } from './sidebar-styles';
@@ -11,6 +11,7 @@ import BottomTab from './bottom-tab';
 import HistoryDrawer from './history-drawer';
 import { useSidebar } from '@/hooks/sidebar/use-sidebar';
 import GroupDrawer from './group-drawer';
+import MemoryDrawer from './memory-drawer';
 import { ModeType } from '@/context/mode-context';
 
 // Type definitions
@@ -61,8 +62,8 @@ const ModeMenu = memo(({ setMode, currentMode, isElectron }: {
             <Menu.ItemIndicator />
             Live Mode
           </Menu.RadioItem>
-          <Menu.RadioItem 
-            value="pet" 
+          <Menu.RadioItem
+            value="pet"
             onClick={() => {
               if (isElectron) {
                 setMode('pet');
@@ -100,6 +101,12 @@ const HeaderButtons = memo(({ onSettingsOpen, onNewHistory, setMode, currentMode
       </Button>
     </HistoryDrawer>
 
+    <MemoryDrawer>
+      <Button title="Memories">
+        <FiDatabase />
+      </Button>
+    </MemoryDrawer>
+
     <Button onClick={onNewHistory}>
       <FiPlus />
     </Button>
@@ -110,10 +117,10 @@ const HeaderButtons = memo(({ onSettingsOpen, onNewHistory, setMode, currentMode
 
 HeaderButtons.displayName = 'HeaderButtons';
 
-const SidebarContent = memo(({ 
-  onSettingsOpen, 
-  onNewHistory, 
-  setMode, 
+const SidebarContent = memo(({
+  onSettingsOpen,
+  onNewHistory,
+  setMode,
   currentMode,
   isElectron
 }: HeaderButtonsProps) => (

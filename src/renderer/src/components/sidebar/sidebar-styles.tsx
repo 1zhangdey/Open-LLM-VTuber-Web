@@ -237,6 +237,74 @@ export const sidebarStyles = {
     },
   },
 
+  memoryDrawer: {
+    listContainer: {
+      flex: 1,
+      overflowY: 'auto',
+      px: 4,
+      py: 2,
+      css: commonStyles.scrollbar,
+    },
+    memoryItem: {
+      mb: 4,
+      p: 3,
+      borderRadius: 'md',
+      bg: 'whiteAlpha.50',
+      cursor: 'pointer',
+      transition: 'all 0.2s',
+      marginBottom: '10px',
+      _hover: {
+        bg: 'whiteAlpha.100',
+      },
+    },
+    memoryHeader: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      mb: 2,
+    },
+    memoryTitle: {
+      fontSize: 'md',
+      fontWeight: 'bold',
+      color: 'whiteAlpha.900',
+    },
+    memoryTypeParams: {
+      fontSize: 'xs',
+      color: 'whiteAlpha.600',
+      fontFamily: 'mono',
+      display: 'inline-block',
+      marginRight: '8px',
+      textTransform: 'uppercase' as const,
+    },
+    memoryContent: {
+      fontSize: 'sm',
+      color: 'whiteAlpha.800',
+      noOfLines: 3,
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      marginTop: '4px',
+    },
+    drawer: {
+      content: {
+        background: 'var(--chakra-colors-gray-900)',
+        maxWidth: '500px', // Wider than history
+        marginTop: isElectron ? '30px' : '0',
+        height: isElectron ? 'calc(100vh - 30px)' : '100vh',
+      },
+      title: {
+        color: 'white',
+      },
+      closeButton: {
+        color: 'white',
+      },
+      actionButton: {
+        color: 'white',
+        borderColor: 'white',
+        variant: 'outline' as const,
+      },
+    },
+  },
+
   cameraPanel: {
     container: {
       width: '97%',
